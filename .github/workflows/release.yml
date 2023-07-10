@@ -1,0 +1,12 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    uses: futuredapp/.github/.github/workflows/ios-selfhosted-release.yml@main
+    secrets:
+      MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY }}
