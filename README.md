@@ -10,8 +10,6 @@ Welcome to the Futured Dev Academy!
 - Honza Pollak, iOS developer, <jan.pollak@futured.app>
 - Marie Re, iOS developer, <marie.re@futured.app>
 
-## Configuration management
-
 ### Tools
 
 - Language: **Swift 5**
