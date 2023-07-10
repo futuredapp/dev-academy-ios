@@ -1,2 +1,0 @@
-brew "imagemagick"
-brew "librsvg"
