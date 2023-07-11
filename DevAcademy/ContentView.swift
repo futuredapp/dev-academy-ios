@@ -9,7 +9,7 @@ struct ContentView: View {
             Text("Hi!")
             Text("My name is.. (what?)")
             Text("My name is.. (who?)")
-            Text("My name is ...")
+            Text("My name is ...Thomas")
         }
         .padding()
     }
