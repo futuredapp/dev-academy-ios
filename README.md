@@ -11,8 +11,7 @@ Welcome to the Futured Dev Academy!
 - Marie Re, iOS developer, <marie.re@futured.app>
 
 ### Future Graduate:
-- ~~Jan Novak, <jan.novak@futured.app>~~
-
+- Ondřej Man, <OndrejMan1@gmail.com>
 ### Tools
 
 - Language: **Swift 5**
