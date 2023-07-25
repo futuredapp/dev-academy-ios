@@ -1,31 +1,48 @@
 import SwiftUI
 
 struct PlacesScene: View {
-    @ObservedObject var placesSceneState: PlacesSceneState
+    @State var features: [Feature] = []
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
-                if !placesSceneState.features.features.isEmpty {
-                    List(placesSceneState.features.features, id: \.properties.nazev) { feature in
+                if !features.isEmpty {
+                    List(features, id: \.properties.nazev) { feature in
                         PlaceRow(feature: feature)
+                            .onTapGesture {
+                                tapped(on: feature)
+                            }
                     }
                     .listStyle(.plain)
-
-                } else if let error = placesSceneState.error {
-                    Text(error.localizedDescription)
                 } else {
                     ProgressView()
                 }
             }
-            .navigationTitle("Kultůrmapa")
-            .onAppear(perform: placesSceneState.loadData)
+            .navigationTitle("Kulturmapa")
+        }
+        .onAppear {
+            fetch()
+        }
+    }
+
+    func tapped(on feature: Feature) {
+        
+    }
+
+    func fetch() {
+        DataService.shared.fetchData { result in
+            switch result {
+            case .success(let features):
+                self.features = features.features
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
 
 struct PlacesScene_Previews: PreviewProvider {
     static var previews: some View {
-        PlacesScene(placesSceneState: PlacesSceneState(dataService: .shared))
+        PlacesScene()
     }
 }

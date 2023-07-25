@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        PlacesScene(placesSceneState: PlacesSceneState(dataService: .shared))
+        PlacesScene()
     }
 }
 

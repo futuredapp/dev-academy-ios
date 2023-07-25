@@ -5,7 +5,7 @@ struct Features {
 }
 
 extension Features {
-    static let mock: Features = .init(
+    static let mock: Features = Features(
         features: [
             Feature(
                 geometry: Point(latitude: 49.1913, longitude: 16.6115),
@@ -97,7 +97,6 @@ extension Features {
                     nazev: "Bar, který neexistuje"
                 )
             )
-
         ]
     )
 }
