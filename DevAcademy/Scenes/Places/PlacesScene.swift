@@ -18,7 +18,7 @@ struct PlacesScene: View {
                     ProgressView()
                 }
             }
-            .navigationTitle("Kulturmapa")
+            .navigationTitle("Kultůrmapa")
         }
         .onAppear {
             fetch()
@@ -26,7 +26,6 @@ struct PlacesScene: View {
     }
 
     func tapped(on feature: Feature) {
-        
     }
 
     func fetch() {
