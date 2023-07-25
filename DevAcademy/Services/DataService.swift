@@ -17,15 +17,11 @@ final class DataService {
             withTimeInterval: 3.0,
             repeats: false,
             block: { [weak self] _ in
-                let newData = DataService.mockData
+                let newData = Features.mock
 
                 self?.data = .success(newData)
                 handler(.success(newData))
             }
         )
     }
-}
-
-extension DataService {
-    private static let mockData = Features.mock
 }

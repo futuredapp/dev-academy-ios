@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		84FA93A42A67F63500DFC974 /* PlacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93A32A67F63500DFC974 /* PlacesScene.swift */; };
-		84FA93A72A67F9C100DFC974 /* PlacesSceneState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93A62A67F9C100DFC974 /* PlacesSceneState.swift */; };
 		84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93AB2A682B2500DFC974 /* PlaceRow.swift */; };
 		84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93AE2A6830F800DFC974 /* Kind.swift */; };
 		84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93B02A68313E00DFC974 /* PossibleKind.swift */; };
@@ -24,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		84FA93A32A67F63500DFC974 /* PlacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesScene.swift; sourceTree = "<group>"; };
-		84FA93A62A67F9C100DFC974 /* PlacesSceneState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesSceneState.swift; sourceTree = "<group>"; };
 		84FA93AB2A682B2500DFC974 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		84FA93AE2A6830F800DFC974 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
 		84FA93B02A68313E00DFC974 /* PossibleKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleKind.swift; sourceTree = "<group>"; };
@@ -55,7 +53,6 @@
 			children = (
 				84FA93A32A67F63500DFC974 /* PlacesScene.swift */,
 				84FA93AB2A682B2500DFC974 /* PlaceRow.swift */,
-				84FA93A62A67F9C100DFC974 /* PlacesSceneState.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -196,7 +193,6 @@
 				BEEF9EC12A67C74E002126F4 /* DataService.swift in Sources */,
 				84FA93B52A68316300DFC974 /* Feature.swift in Sources */,
 				84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */,
-				84FA93A72A67F9C100DFC974 /* PlacesSceneState.swift in Sources */,
 				84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */,
 				84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */,
 				84FA93B72A68317F00DFC974 /* Point.swift in Sources */,
@@ -330,6 +326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -358,6 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
