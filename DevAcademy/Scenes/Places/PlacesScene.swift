@@ -5,12 +5,10 @@ struct PlacesScene: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            Group {
                 if !placesSceneState.features.features.isEmpty {
-                    List {
-                        ForEach(placesSceneState.features.features, id: \.properties.nazev) { feature in
-                            PlaceRow(feature: feature)
-                        }
+                    List(placesSceneState.features.features, id: \.properties.nazev) { feature in
+                        PlaceRow(feature: feature)
                     }
                     .listStyle(.plain)
 
