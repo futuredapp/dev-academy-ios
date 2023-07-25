@@ -20,9 +20,7 @@ struct PlacesScene: View {
             }
             .navigationTitle("Kultůrmapa")
         }
-        .onAppear {
-            fetch()
-        }
+        .onAppear(perform: fetch)
     }
 
     func tapped(on feature: Feature) {

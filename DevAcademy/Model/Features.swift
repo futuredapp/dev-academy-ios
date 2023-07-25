@@ -96,6 +96,51 @@ extension Features {
                     druh: .kind(.podnikSLulturnimProgramem),
                     nazev: "Bar, který neexistuje"
                 )
+            ),
+            Feature(
+                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                properties: Properties(
+                    ogcFid: 11,
+                    obrId1: URL(string: "https://picsum.photos/200")!,
+                    druh: .kind(.kino),
+                    nazev: "Cinema City"
+                )
+            ),
+            Feature(
+                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                properties: Properties(
+                    ogcFid: 12,
+                    obrId1: URL(string: "https://picsum.photos/200")!,
+                    druh: .kind(.kino),
+                    nazev: "Univerzitní kino Scala"
+                )
+            ),
+            Feature(
+                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                properties: Properties(
+                    ogcFid: 13,
+                    obrId1: URL(string: "https://picsum.photos/200")!,
+                    druh: .kind(.hub),
+                    nazev: "Impact Hub"
+                )
+            ),
+            Feature(
+                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                properties: Properties(
+                    ogcFid: 14,
+                    obrId1: URL(string: "https://picsum.photos/200")!,
+                    druh: .kind(.kulturniPamátka),
+                    nazev: "Villa Tugendhat"
+                )
+            ),
+            Feature(
+                geometry: Point(latitude: 49.1925, longitude: 16.6112),
+                properties: Properties(
+                    ogcFid: 15,
+                    obrId1: URL(string: "https://picsum.photos/200")!,
+                    druh: .kind(.vystaviste),
+                    nazev: "Brněnské výstaviště"
+                )
             )
         ]
     )
