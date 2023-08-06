@@ -4,7 +4,9 @@ import SwiftUI
 struct DevAcademyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environmentObject(FeaturesObservableObject())
+                .environmentObject(Coordinator())
         }
     }
 }
