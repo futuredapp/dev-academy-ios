@@ -30,7 +30,7 @@ struct PlacesView: View {
         }
         .onAppear(perform: state.fetch)
         .sheet(isPresented: state.$showFavorites) {
-            Text("Zatím tady nic není")
+            coordinator.favoritesScene
         }
     }
 }
