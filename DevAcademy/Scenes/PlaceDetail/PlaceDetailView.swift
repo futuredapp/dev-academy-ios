@@ -43,7 +43,7 @@ struct PlaceDetailView: View {
 
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(state: PlaceDetailViewState(feature: Features.mock.features.first!))
+        PlaceDetailView(state: PlaceDetailViewState(place: Places.mock.places.first!))
     }
 }
 

@@ -1,20 +1,20 @@
 import SwiftUI
 
 struct PlacesViewState: DynamicProperty {
-    @EnvironmentObject private var featuresObject: FeaturesObservableObject
+    @EnvironmentObject private var placesObject: PlacesObservableObject
     
     @State var showFavorites = false
     
-    var features: [Feature] {
-        featuresObject.features
+    var places: [Place] {
+        placesObject.place
     }
     
     var featuresAreLoaded: Bool {
-        !features.isEmpty
+        !places.isEmpty
     }
     
     func fetch() {
-        featuresObject.fetchFeatures()
+        placesObject.fetchFeatures()
     }
     
     func favoritesPressed() {

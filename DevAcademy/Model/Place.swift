@@ -1,4 +1,4 @@
-struct Feature {
+struct Place {
     var geometry: Point
     var properties: Properties
 }

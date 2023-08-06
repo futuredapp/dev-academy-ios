@@ -7,8 +7,8 @@ final class Coordinator: ObservableObject {
         PlacesView()
     }
 
-    func placeDetailScene(with feature: Feature) -> some View {
-        PlaceDetailView(state: PlaceDetailViewState(feature: feature))
+    func placeDetailScene(with place: Place) -> some View {
+        PlaceDetailView(state: PlaceDetailViewState(place: place))
     }
 
     // MARK: - Favorites scenes

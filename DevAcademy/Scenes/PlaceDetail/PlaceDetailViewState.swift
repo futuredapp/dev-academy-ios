@@ -2,26 +2,26 @@ import SwiftUI
 import MapKit
 
 struct PlaceDetailViewState: DynamicProperty {
-    private let feature: Feature
+    private let place: Place
     
-    init(feature: Feature) {
-        self.feature = feature
+    init(place: Place) {
+        self.place = place
     }
     
     var placeTitle: String {
-        feature.properties.nazev
+        place.properties.nazev
     }
     
     var placeType: String {
-        feature.properties.druh.rawValue
+        place.properties.druh.rawValue
     }
     
     var placeImageUrl: URL {
-        feature.properties.obrId1
+        place.properties.obrId1
     }
     
     var placeCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: feature.geometry.latitude, longitude: feature.geometry.longitude)
+        CLLocationCoordinate2D(latitude: place.geometry.latitude, longitude: place.geometry.longitude)
     }
 }
 

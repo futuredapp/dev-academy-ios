@@ -2,12 +2,12 @@ import Foundation
 
 final class DataService {
 
-    var data: Result<Features, Error>? = nil
+    var data: Result<Places, Error>? = nil
 
     static let shared = DataService()
     private init() {}
 
-    func fetchData(_ handler: @escaping (Result<Features, Error>) -> Void) {
+    func fetchData(_ handler: @escaping (Result<Places, Error>) -> Void) {
         if let data {
             handler(data)
             return
@@ -17,7 +17,7 @@ final class DataService {
             withTimeInterval: 3.0,
             repeats: false,
             block: { [weak self] _ in
-                let newData = Features.mock
+                let newData = Places.mock
 
                 self?.data = .success(newData)
                 handler(.success(newData))
