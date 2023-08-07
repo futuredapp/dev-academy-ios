@@ -26,7 +26,6 @@
 		C0CAEAC12A8017E7008D87C2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC02A8017E7008D87C2 /* MapView.swift */; };
 		C0CAEAC32A80185B008D87C2 /* IdentifiableCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC22A80185B008D87C2 /* IdentifiableCoordinate.swift */; };
 		C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC72A80220A008D87C2 /* Coordinator.swift */; };
-		C0CAEACE2A802338008D87C2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEACD2A802338008D87C2 /* Services.swift */; };
 		C0CAEAD12A8023FB008D87C2 /* PlacesObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAD02A8023FB008D87C2 /* PlacesObservableObject.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		C0CAEAC02A8017E7008D87C2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C0CAEAC22A80185B008D87C2 /* IdentifiableCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCoordinate.swift; sourceTree = "<group>"; };
 		C0CAEAC72A80220A008D87C2 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		C0CAEACD2A802338008D87C2 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C0CAEAD02A8023FB008D87C2 /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +100,6 @@
 		84FA93BA2A68320C00DFC974 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C0CAEACD2A802338008D87C2 /* Services.swift */,
 				BEEF9EC02A67C74E002126F4 /* DataService.swift */,
 			);
 			path = Services;
@@ -266,7 +263,6 @@
 				84FA93B52A68316300DFC974 /* Place.swift in Sources */,
 				C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */,
 				84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */,
-				C0CAEACE2A802338008D87C2 /* Services.swift in Sources */,
 				84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */,
 				84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */,
 				C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */,
