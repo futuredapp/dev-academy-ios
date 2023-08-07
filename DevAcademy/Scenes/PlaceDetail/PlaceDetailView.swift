@@ -2,18 +2,19 @@ import SwiftUI
 import MapKit
 
 struct PlaceDetailView: View {
-    let state: PlaceDetailViewState
+    let place: Place
     
     var body: some View {
         ScrollView {
             VStack {
-                Text(state.placeType)
+                Text(place.properties.druh.rawValue)
                     .font(.title2)
                     .fontWeight(.medium)
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding([.leading, .bottom])
-                AsyncImage(url: state.placeImageUrl) { image in
+
+                AsyncImage(url: place.properties.obrId1) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -25,8 +26,9 @@ struct PlaceDetailView: View {
                     ProgressView()
                 }
                 .padding(.horizontal)
+
                 Spacer(minLength: 20)
-                MapView(coordinate: state.placeCoordinate)
+                MapView(coordinate: CLLocationCoordinate2D(latitude: place.geometry.latitude, longitude: place.geometry.longitude))
                     .frame(height: 300)
                     .cornerRadius(10)
                     .overlay(RoundedRectangle(cornerRadius: 10)
@@ -34,7 +36,7 @@ struct PlaceDetailView: View {
                     .padding(.horizontal)
                 Spacer()
             }
-            .navigationTitle(state.placeTitle)
+            .navigationTitle(Text(place.properties.nazev))
         }
     }
 }
@@ -43,7 +45,7 @@ struct PlaceDetailView: View {
 
 struct PlaceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceDetailView(state: PlaceDetailViewState(place: Places.mock.places.first!))
+        PlaceDetailView(place: Places.mock.places.first!)
     }
 }
 

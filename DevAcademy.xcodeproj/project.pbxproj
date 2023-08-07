@@ -21,13 +21,8 @@
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
-		C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAB82A80094E008D87C2 /* PlaceDetailViewState.swift */; };
-		C0CAEABB2A8009A4008D87C2 /* PlacesViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEABA2A8009A4008D87C2 /* PlacesViewState.swift */; };
 		C0CAEAC12A8017E7008D87C2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC02A8017E7008D87C2 /* MapView.swift */; };
 		C0CAEAC32A80185B008D87C2 /* IdentifiableCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC22A80185B008D87C2 /* IdentifiableCoordinate.swift */; };
-		C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC72A80220A008D87C2 /* Coordinator.swift */; };
-		C0CAEACE2A802338008D87C2 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEACD2A802338008D87C2 /* Services.swift */; };
-		C0CAEAD12A8023FB008D87C2 /* PlacesObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAD02A8023FB008D87C2 /* PlacesObservableObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +40,8 @@
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C056104C2A5C78CB007FB970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C0CAEAB82A80094E008D87C2 /* PlaceDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewState.swift; sourceTree = "<group>"; };
-		C0CAEABA2A8009A4008D87C2 /* PlacesViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewState.swift; sourceTree = "<group>"; };
 		C0CAEAC02A8017E7008D87C2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		C0CAEAC22A80185B008D87C2 /* IdentifiableCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableCoordinate.swift; sourceTree = "<group>"; };
-		C0CAEAC72A80220A008D87C2 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		C0CAEACD2A802338008D87C2 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
-		C0CAEAD02A8023FB008D87C2 /* PlacesObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesObservableObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				849BA63F2A79094500D8E0F0 /* PlaceDetailView.swift */,
-				C0CAEAB82A80094E008D87C2 /* PlaceDetailViewState.swift */,
 			);
 			path = PlaceDetail;
 			sourceTree = "<group>";
@@ -79,7 +68,6 @@
 			isa = PBXGroup;
 			children = (
 				84FA93A32A67F63500DFC974 /* PlacesView.swift */,
-				C0CAEABA2A8009A4008D87C2 /* PlacesViewState.swift */,
 				84FA93AB2A682B2500DFC974 /* PlaceRow.swift */,
 			);
 			path = Places;
@@ -102,7 +90,6 @@
 		84FA93BA2A68320C00DFC974 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				C0CAEACD2A802338008D87C2 /* Services.swift */,
 				BEEF9EC02A67C74E002126F4 /* DataService.swift */,
 			);
 			path = Services;
@@ -138,7 +125,6 @@
 			children = (
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
-				C0CAEAC42A801F3C008D87C2 /* Environment */,
 				C0CAEABE2A8017C7008D87C2 /* Library */,
 				84FA93AD2A6830DA00DFC974 /* Model */,
 				84FA93BB2A68322500DFC974 /* Scenes */,
@@ -162,23 +148,6 @@
 				C0CAEAC02A8017E7008D87C2 /* MapView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		C0CAEAC42A801F3C008D87C2 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				C0CAEACF2A8023DE008D87C2 /* ObservableObjects */,
-				C0CAEAC72A80220A008D87C2 /* Coordinator.swift */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
-		C0CAEACF2A8023DE008D87C2 /* ObservableObjects */ = {
-			isa = PBXGroup;
-			children = (
-				C0CAEAD02A8023FB008D87C2 /* PlacesObservableObject.swift */,
-			);
-			path = ObservableObjects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,18 +227,13 @@
 			files = (
 				849BA6402A79094500D8E0F0 /* PlaceDetailView.swift in Sources */,
 				C0CAEAC12A8017E7008D87C2 /* MapView.swift in Sources */,
-				C0CAEAD12A8023FB008D87C2 /* PlacesObservableObject.swift in Sources */,
-				C0CAEABB2A8009A4008D87C2 /* PlacesViewState.swift in Sources */,
 				84FA93B92A68319800DFC974 /* Properties.swift in Sources */,
 				84FA93B32A68315300DFC974 /* Places.swift in Sources */,
 				BEEF9EC12A67C74E002126F4 /* DataService.swift in Sources */,
 				84FA93B52A68316300DFC974 /* Place.swift in Sources */,
-				C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */,
 				84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */,
-				C0CAEACE2A802338008D87C2 /* Services.swift in Sources */,
 				84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */,
 				84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */,
-				C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */,
 				84FA93B72A68317F00DFC974 /* Point.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
 				84FA93A42A67F63500DFC974 /* PlacesView.swift in Sources */,

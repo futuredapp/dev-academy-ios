@@ -2,16 +2,15 @@ import SwiftUI
 import ActivityIndicatorView
 
 struct PlacesView: View {
-    @EnvironmentObject private var coordinator: Coordinator
-    
-    let state = PlacesViewState()
+    @State var places: [Place] = []
+    @State var showFavorites = false
 
     var body: some View {
         NavigationStack {
             Group {
-                if state.featuresAreLoaded {
-                    List(state.places, id: \.properties.nazev) { place in
-                        NavigationLink(destination: coordinator.placeDetailScene(with: place)) {
+                if !places.isEmpty {
+                    List(places, id: \.properties.nazev) { place in
+                        NavigationLink(destination: PlaceDetailView(place: place)) {
                             PlaceRow(place: place)
                         }
                     }
@@ -24,13 +23,26 @@ struct PlacesView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Oblíbené", action: state.favoritesPressed)
+                    Button("Oblíbené") {
+                        showFavorites = true
+                    }
                 }
             }
         }
-        .onAppear(perform: state.fetch)
-        .sheet(isPresented: state.$showFavorites) {
-            coordinator.favoritesScene
+        .onAppear(perform: fetch)
+        .sheet(isPresented: $showFavorites) {
+            Text("Zatím tady nic není")
+        }
+    }
+
+    func fetch() {
+        DataService.shared.fetchData { result in
+            switch result {
+            case .success(let places):
+                self.places = places.places
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }
