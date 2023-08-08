@@ -21,6 +21,9 @@
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
 		C056104D2A5C78CB007FB970 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C056104C2A5C78CB007FB970 /* Assets.xcassets */; };
+		C0B74A2C2A8280C60018D10F /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B74A2A2A8280C60018D10F /* Environment.swift */; };
+		C0B74A2D2A8280C60018D10F /* ObservableObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B74A2B2A8280C60018D10F /* ObservableObjects.swift */; };
+		C0B74A2F2A8280D80018D10F /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B74A2E2A8280D80018D10F /* Services.swift */; };
 		C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAB82A80094E008D87C2 /* PlaceDetailViewState.swift */; };
 		C0CAEABB2A8009A4008D87C2 /* PlacesViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEABA2A8009A4008D87C2 /* PlacesViewState.swift */; };
 		C0CAEAC12A8017E7008D87C2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CAEAC02A8017E7008D87C2 /* MapView.swift */; };
@@ -44,6 +47,9 @@
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
 		C056104A2A5C78CA007FB970 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		C056104C2A5C78CB007FB970 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C0B74A2A2A8280C60018D10F /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		C0B74A2B2A8280C60018D10F /* ObservableObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableObjects.swift; sourceTree = "<group>"; };
+		C0B74A2E2A8280D80018D10F /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		C0CAEAB82A80094E008D87C2 /* PlaceDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewState.swift; sourceTree = "<group>"; };
 		C0CAEABA2A8009A4008D87C2 /* PlacesViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesViewState.swift; sourceTree = "<group>"; };
 		C0CAEAC02A8017E7008D87C2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 		84FA93BA2A68320C00DFC974 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C0B74A2E2A8280D80018D10F /* Services.swift */,
 				BEEF9EC02A67C74E002126F4 /* DataService.swift */,
 			);
 			path = Services;
@@ -166,6 +173,8 @@
 			children = (
 				C0CAEACF2A8023DE008D87C2 /* ObservableObjects */,
 				C0CAEAC72A80220A008D87C2 /* Coordinator.swift */,
+				C0B74A2A2A8280C60018D10F /* Environment.swift */,
+				C0B74A2B2A8280C60018D10F /* ObservableObjects.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -263,11 +272,14 @@
 				84FA93B52A68316300DFC974 /* Place.swift in Sources */,
 				C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */,
 				84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */,
+				C0B74A2F2A8280D80018D10F /* Services.swift in Sources */,
 				84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */,
 				84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */,
 				C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */,
+				C0B74A2D2A8280C60018D10F /* ObservableObjects.swift in Sources */,
 				84FA93B72A68317F00DFC974 /* Point.swift in Sources */,
 				C056104B2A5C78CA007FB970 /* RootView.swift in Sources */,
+				C0B74A2C2A8280C60018D10F /* Environment.swift in Sources */,
 				84FA93A42A67F63500DFC974 /* PlacesView.swift in Sources */,
 				C0CAEAC32A80185B008D87C2 /* IdentifiableCoordinate.swift in Sources */,
 				C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */,

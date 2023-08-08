@@ -3,12 +3,12 @@ import Foundation
 // MARK: - ObservableObjects
 
 final class ObservableObjects {
-    let features: FeaturesObservableObject
+    let places: PlacesObservableObject
     
     init(
-        features: FeaturesObservableObject
+        places: PlacesObservableObject
     ) {
-        self.features = features
+        self.places = places
     }
 }
 
@@ -16,10 +16,10 @@ final class ObservableObjects {
 
 extension ObservableObjects {
     convenience init(services: Services) {
-        let features = FeaturesObservableObject()
+        let places = PlacesObservableObject()
         
         self.init(
-            features: features
+            places: places
         )
     }
 }

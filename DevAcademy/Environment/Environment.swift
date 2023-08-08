@@ -6,7 +6,7 @@ private struct Environment: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .environmentObject(objects.features)
+            .environmentObject(objects.places)
             .environmentObject(coordinator)
     }
 }

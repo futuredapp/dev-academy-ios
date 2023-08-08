@@ -6,7 +6,7 @@ struct PlacesViewState: DynamicProperty {
     @State var showFavorites = false
     
     var places: [Place] {
-        placesObject.place
+        placesObject.places
     }
     
     var featuresAreLoaded: Bool {
@@ -14,7 +14,7 @@ struct PlacesViewState: DynamicProperty {
     }
     
     func fetch() {
-        placesObject.fetchFeatures()
+        placesObject.fetchPlaces()
     }
     
     func favoritesPressed() {
