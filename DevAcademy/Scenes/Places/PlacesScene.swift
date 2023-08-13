@@ -1,29 +1,38 @@
 import SwiftUI
+import ActivityIndicatorView
 
 struct PlacesScene: View {
     @State var features: [Feature] = []
+    @State var showFavorites = false
 
     var body: some View {
         NavigationStack {
             Group {
                 if !features.isEmpty {
                     List(features, id: \.properties.nazev) { feature in
-                        PlaceRow(feature: feature)
-                            .onTapGesture {
-                                tapped(on: feature)
-                            }
+                        NavigationLink(destination: PlaceDetail(feature: feature)) {
+                            PlaceRow(feature: feature)
+                        }
                     }
                     .listStyle(.plain)
                 } else {
-                    ProgressView()
+                    ActivityIndicatorView(isVisible: .constant(true), type: .growingCircle)
                 }
             }
             .navigationTitle("Kultůrmapa")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Oblíbené") {
+                        showFavorites = true
+                    }
+                }
+            }
         }
         .onAppear(perform: fetch)
-    }
-
-    func tapped(on feature: Feature) {
+        .sheet(isPresented: $showFavorites) {
+            Text("Zatím tady nic není")
+        }
     }
 
     func fetch() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		849BA6402A79094500D8E0F0 /* PlaceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BA63F2A79094500D8E0F0 /* PlaceDetail.swift */; };
+		849BA6462A791DF800D8E0F0 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 849BA6452A791DF800D8E0F0 /* ActivityIndicatorView */; };
 		84FA93A42A67F63500DFC974 /* PlacesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93A32A67F63500DFC974 /* PlacesScene.swift */; };
 		84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93AB2A682B2500DFC974 /* PlaceRow.swift */; };
 		84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93AE2A6830F800DFC974 /* Kind.swift */; };
@@ -22,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		849BA63F2A79094500D8E0F0 /* PlaceDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetail.swift; sourceTree = "<group>"; };
 		84FA93A32A67F63500DFC974 /* PlacesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesScene.swift; sourceTree = "<group>"; };
 		84FA93AB2A682B2500DFC974 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
 		84FA93AE2A6830F800DFC974 /* Kind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kind.swift; sourceTree = "<group>"; };
@@ -42,12 +45,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849BA6462A791DF800D8E0F0 /* ActivityIndicatorView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		849BA63E2A79090C00D8E0F0 /* PlaceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				849BA63F2A79094500D8E0F0 /* PlaceDetail.swift */,
+			);
+			path = PlaceDetail;
+			sourceTree = "<group>";
+		};
 		84FA93A52A67F66B00DFC974 /* Places */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +93,7 @@
 		84FA93BB2A68322500DFC974 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				849BA63E2A79090C00D8E0F0 /* PlaceDetail */,
 				84FA93A52A67F66B00DFC974 /* Places */,
 			);
 			path = Scenes;
@@ -132,6 +145,7 @@
 			);
 			name = DevAcademy;
 			packageProductDependencies = (
+				849BA6452A791DF800D8E0F0 /* ActivityIndicatorView */,
 			);
 			productName = DevAcademy;
 			productReference = C05610452A5C78CA007FB970 /* DevAcademy.app */;
@@ -162,6 +176,7 @@
 			);
 			mainGroup = C056103C2A5C78CA007FB970;
 			packageReferences = (
+				849BA6442A791DF800D8E0F0 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
 			);
 			productRefGroup = C05610462A5C78CA007FB970 /* Products */;
 			projectDirPath = "";
@@ -188,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849BA6402A79094500D8E0F0 /* PlaceDetail.swift in Sources */,
 				84FA93B92A68319800DFC974 /* Properties.swift in Sources */,
 				84FA93B32A68315300DFC974 /* Features.swift in Sources */,
 				BEEF9EC12A67C74E002126F4 /* DataService.swift in Sources */,
@@ -399,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		849BA6442A791DF800D8E0F0 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		849BA6452A791DF800D8E0F0 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 849BA6442A791DF800D8E0F0 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C056103D2A5C78CA007FB970 /* Project object */;
 }
