@@ -21,7 +21,8 @@ final class ProductionPlacesService: PlacesService {
     // A. Closure variant
     func places(_ completion: @escaping (Result<Places, Error>) -> Void) {
         let session = URLSession.shared
-        var request = URLRequest(url: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
+        let url = URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/.../query?where=1%3D1&outFields=*&f=json")!
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = session.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -55,7 +56,8 @@ final class ProductionPlacesService: PlacesService {
     // C. Async variant
     func placesWithAsync() async throws -> Places {
         let session = URLSession.shared
-        var request = URLRequest(url: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
+        let url = URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/.../query?where=1%3D1&outFields=*&f=json")!
+        var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let (data, response) = try await session.data(for: request)
         return try JSONDecoder().decode(Places.self, from: data)
