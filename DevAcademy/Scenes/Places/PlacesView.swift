@@ -28,11 +28,14 @@ struct PlacesView: View {
                 }
             }
         }
+        // A. Closure variant
         .onAppear(perform: state.fetch)
-        .task {
+//        .task {
+//        // B. Async with checked continuation variant
 //            await state.fetchPlacesWithCheckedContinuation()
+//        // C. Async variant
 //            await state.fetchPlacesWithAsync()
-        }
+//        }
         .sheet(isPresented: state.$showFavorites) {
             coordinator.favoritesScene
         }

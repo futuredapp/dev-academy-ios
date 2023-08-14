@@ -13,14 +13,17 @@ struct PlacesViewState: DynamicProperty {
         !places.isEmpty
     }
     
+    // A. Closure variant
     func fetch() {
         placesObject.fetchPlaces()
     }
 
+    // B. Async with checked continuation variant
     func fetchPlacesWithCheckedContinuation() async {
         await placesObject.fetchPlacesWithCheckedContinuation()
     }
 
+    // C. Async variant
     func fetchPlacesWithAsync() async {
         await placesObject.fetchPlacesWithAsync()
     }

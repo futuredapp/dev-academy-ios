@@ -34,12 +34,11 @@ final class PlacesObservableObject: ObservableObject {
         }
     }
 
+    @MainActor
     func fetchPlacesWithAsync() async {
         do {
             let placesResult = try await placesService.placesWithAsync()
-            DispatchQueue.main.async {
-                self.places = placesResult.places
-            }
+            self.places = placesResult.places
         } catch {
             print(error)
         }

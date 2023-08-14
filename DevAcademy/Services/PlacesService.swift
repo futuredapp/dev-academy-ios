@@ -7,12 +7,18 @@ enum APIError: Error {
 }
 
 protocol PlacesService {
+    // A. Closure variant
     func places(_ completion: @escaping (Result<Places, Error>) -> Void)
+    
+    // B. Async with checked continuation variant
     func placesWithCheckedContinuation() async -> Result<Places, Error>
+    
+    // C. Async variant
     func placesWithAsync() async throws -> Places
 }
 
 final class ProductionPlacesService: PlacesService {
+    // A. Closure variant
     func places(_ completion: @escaping (Result<Places, Error>) -> Void) {
         let session = URLSession.shared
         var request = URLRequest(url: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
@@ -37,6 +43,7 @@ final class ProductionPlacesService: PlacesService {
         task.resume()
     }
 
+    // B. Async with checked continuation variant
     func placesWithCheckedContinuation() async -> Result<Places, Error> {
         await withCheckedContinuation { continuation in
             places { result in
@@ -45,9 +52,12 @@ final class ProductionPlacesService: PlacesService {
         }
     }
 
+    // C. Async variant
     func placesWithAsync() async throws -> Places {
         let session = URLSession.shared
-        let (data, _) = try await session.data(from: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
+        var request = URLRequest(url: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
+        request.httpMethod = "GET"
+        let (data, response) = try await session.data(for: request)
         return try JSONDecoder().decode(Places.self, from: data)
     }
 }
