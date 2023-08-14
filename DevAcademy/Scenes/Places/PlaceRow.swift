@@ -1,11 +1,11 @@
 import SwiftUI
 
 struct PlaceRow: View {
-    let place: Place
+    let feature: Feature
 
     var body: some View {
         HStack {
-            AsyncImage(url: place.properties.obrId1) { image in
+            AsyncImage(url: feature.properties.obrId1) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -16,11 +16,11 @@ struct PlaceRow: View {
                 ProgressView()
             }
             VStack(alignment: .leading) {
-                Text(place.properties.nazev)
+                Text(feature.properties.nazev)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                Text(place.properties.druh.rawValue)
+                Text(feature.properties.druh.rawValue)
                     .foregroundColor(.secondary)
                     .font(.subheadline)
             }
@@ -31,6 +31,6 @@ struct PlaceRow: View {
 
 struct PlaceRow_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceRow(place: Places.mock.places[0])
+        PlaceRow(feature: Features.mock.features[0])
     }
 }
