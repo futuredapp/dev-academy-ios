@@ -20,5 +20,28 @@ final class PlacesObservableObject: ObservableObject {
                 print(error)
             }
         }
-    }    
+    }
+
+    func fetchPlacesWithCheckedContinuation() async {
+        let result = await placesService.placesWithCheckedContinuation()
+        switch result {
+        case .success(let places):
+            DispatchQueue.main.async {
+                self.places = places.places
+            }
+        case .failure(let error):
+            print(error)
+        }
+    }
+
+    func fetchPlacesWithAsync() async {
+        do {
+            let placesResult = try await placesService.placesWithAsync()
+            DispatchQueue.main.async {
+                self.places = placesResult.places
+            }
+        } catch {
+            print(error)
+        }
+    }
 }

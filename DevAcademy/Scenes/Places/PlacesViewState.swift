@@ -16,6 +16,14 @@ struct PlacesViewState: DynamicProperty {
     func fetch() {
         placesObject.fetchPlaces()
     }
+
+    func fetchPlacesWithCheckedContinuation() async {
+        await placesObject.fetchPlacesWithCheckedContinuation()
+    }
+
+    func fetchPlacesWithAsync() async {
+        await placesObject.fetchPlacesWithAsync()
+    }
     
     func favoritesPressed() {
         showFavorites = true

@@ -29,6 +29,10 @@ struct PlacesView: View {
             }
         }
         .onAppear(perform: state.fetch)
+        .task {
+//            await state.fetchPlacesWithCheckedContinuation()
+//            await state.fetchPlacesWithAsync()
+        }
         .sheet(isPresented: state.$showFavorites) {
             coordinator.favoritesScene
         }

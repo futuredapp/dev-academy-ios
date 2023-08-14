@@ -8,6 +8,8 @@ enum APIError: Error {
 
 protocol PlacesService {
     func places(_ completion: @escaping (Result<Places, Error>) -> Void)
+    func placesWithCheckedContinuation() async -> Result<Places, Error>
+    func placesWithAsync() async throws -> Places
 }
 
 final class ProductionPlacesService: PlacesService {
@@ -34,9 +36,35 @@ final class ProductionPlacesService: PlacesService {
         }
         task.resume()
     }
+
+    func placesWithCheckedContinuation() async -> Result<Places, Error> {
+        await withCheckedContinuation { continuation in
+            places { result in
+                continuation.resume(returning: result)
+            }
+        }
+    }
+
+    func placesWithAsync() async throws -> Places {
+        let session = URLSession.shared
+        let (data, _) = try await session.data(from: URL(string: "https://gis.brno.cz/ags1/rest/services/OMI/omi_ok_kulturni_instituce/FeatureServer/0/query?where=1%3D1&outFields=*&f=json")!)
+        return try JSONDecoder().decode(Places.self, from: data)
+    }
 }
 
 final class MockPlacesService: PlacesService {
+    func placesWithCheckedContinuation() async -> Result<Places, Error> {
+        await withCheckedContinuation { continuation in
+            places { result in
+                continuation.resume(returning: result)
+            }
+        }
+    }
+
+    func placesWithAsync() async -> Places {
+        Places.mock
+    }
+
     
     func places(_ completion: @escaping (Result<Places, Error>) -> Void) {
         Timer.scheduledTimer(
