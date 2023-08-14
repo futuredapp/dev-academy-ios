@@ -9,19 +9,22 @@ struct PlaceDetailViewState: DynamicProperty {
     }
     
     var placeTitle: String {
-        place.properties.nazev
+        place.attributes.name
     }
     
     var placeType: String {
-        place.properties.druh.rawValue
+        place.attributes.type.rawValue
     }
     
-    var placeImageUrl: URL {
-        place.properties.obrId1
+    var placeImageUrl: URL? {
+        place.attributes.imageUrl
     }
     
-    var placeCoordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(latitude: place.geometry.latitude, longitude: place.geometry.longitude)
+    var placeCoordinate: CLLocationCoordinate2D? {
+        guard let latitude = place.geometry?.latitude, let longitude = place.geometry?.longitude else {
+            return nil
+        }
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
 

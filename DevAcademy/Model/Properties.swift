@@ -1,8 +1,15 @@
 import Foundation
 
-struct Properties {
+struct Properties: Decodable {
     var ogcFid: Int
-    var obrId1: URL
-    var druh: PossibleKind
-    var nazev: String
+    var imageUrl: URL?
+    var type: PossibleKind
+    var name: String
+    
+    enum CodingKeys: String, CodingKey {
+        case ogcFid = "ogc_fid"
+        case imageUrl = "obr_id1"
+        case type = "druh"
+        case name = "nazev"
+    }
 }

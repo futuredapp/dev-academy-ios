@@ -16,7 +16,7 @@ final class ObservableObjects {
 
 extension ObservableObjects {
     convenience init(services: Services) {
-        let places = PlacesObservableObject()
+        let places = PlacesObservableObject(placesService: services.placesService)
         
         self.init(
             places: places

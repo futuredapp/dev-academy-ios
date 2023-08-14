@@ -10,7 +10,7 @@ struct PlacesView: View {
         NavigationStack {
             Group {
                 if state.featuresAreLoaded {
-                    List(state.places, id: \.properties.nazev) { place in
+                    List(state.places, id: \.attributes.name) { place in
                         NavigationLink(destination: coordinator.placeDetailScene(with: place)) {
                             PlaceRow(place: place)
                         }

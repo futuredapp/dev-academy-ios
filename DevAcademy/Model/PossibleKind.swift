@@ -1,4 +1,4 @@
-enum PossibleKind: RawRepresentable {
+enum PossibleKind: RawRepresentable, Decodable {
     case kind(Kind)
     case unknown(String)
 

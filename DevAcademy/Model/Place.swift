@@ -1,4 +1,4 @@
-struct Place {
-    var geometry: Point
-    var properties: Properties
+struct Place: Decodable {
+    var geometry: Point?
+    var attributes: Properties
 }
