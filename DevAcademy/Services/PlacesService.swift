@@ -60,6 +60,9 @@ final class ProductionPlacesService: PlacesService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let (data, response) = try await session.data(for: request)
+        guard let response = response as? HTTPURLResponse, 200 ... 299  ~= response.statusCode else {
+            throw APIError.invalidResponse
+        }
         return try JSONDecoder().decode(Places.self, from: data)
     }
 }
