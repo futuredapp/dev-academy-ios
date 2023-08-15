@@ -9,6 +9,7 @@ final class PlacesObservableObject: ObservableObject {
         self.placesService = placesService
     }
     
+    // A. Closure variant
     func fetchPlaces() {
         placesService.places { result in
             switch result {
@@ -22,6 +23,7 @@ final class PlacesObservableObject: ObservableObject {
         }
     }
 
+    // B. Async with checked continuation variant
     func fetchPlacesWithCheckedContinuation() async {
         let result = await placesService.placesWithCheckedContinuation()
         switch result {
@@ -34,6 +36,7 @@ final class PlacesObservableObject: ObservableObject {
         }
     }
 
+    // C. Async variant
     @MainActor
     func fetchPlacesWithAsync() async {
         do {

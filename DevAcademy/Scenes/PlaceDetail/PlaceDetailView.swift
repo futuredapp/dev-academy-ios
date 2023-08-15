@@ -28,6 +28,7 @@ struct PlaceDetailView: View {
                     .padding(.horizontal)
                 }
                 Spacer(minLength: 20)
+// FIXME: Fix coordinates crash
 //                if let placeCoordinate = state.placeCoordinate {
 //                    MapView(coordinate: placeCoordinate)
 //                        .frame(height: 300)
