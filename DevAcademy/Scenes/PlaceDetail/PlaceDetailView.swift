@@ -13,25 +13,30 @@ struct PlaceDetailView: View {
                     .foregroundColor(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding([.leading, .bottom])
-                AsyncImage(url: state.placeImageUrl) { image in
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity)
+                if let placeImageUrl = state.placeImageUrl {
+                    AsyncImage(url: placeImageUrl) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: .infinity)
+                            .cornerRadius(10)
+                            .overlay(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.gray.opacity(0.2), lineWidth: 1))
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .padding(.horizontal)
+                }
+                Spacer(minLength: 20)
+// FIXME: Fix coordinates crash
+                if let placeCoordinate = state.placeCoordinate {
+                    MapView(coordinate: placeCoordinate)
+                        .frame(height: 300)
                         .cornerRadius(10)
                         .overlay(RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.gray.opacity(0.2), lineWidth: 1))
-                } placeholder: {
-                    ProgressView()
+                        .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                Spacer(minLength: 20)
-                MapView(coordinate: state.placeCoordinate)
-                    .frame(height: 300)
-                    .cornerRadius(10)
-                    .overlay(RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray.opacity(0.2), lineWidth: 1))
-                    .padding(.horizontal)
                 Spacer()
             }
             .navigationTitle(state.placeTitle)

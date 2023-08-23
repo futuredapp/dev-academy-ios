@@ -10,7 +10,7 @@ struct PlacesView: View {
         NavigationStack {
             Group {
                 if state.featuresAreLoaded {
-                    List(state.places, id: \.properties.nazev) { place in
+                    List(state.places, id: \.attributes.name) { place in
                         NavigationLink(destination: coordinator.placeDetailScene(with: place)) {
                             PlaceRow(place: place)
                         }
@@ -28,7 +28,14 @@ struct PlacesView: View {
                 }
             }
         }
+        // A. Closure variant
         .onAppear(perform: state.fetch)
+//        .task {
+//        // B. Async with checked continuation variant
+//            await state.fetchPlacesWithCheckedContinuation()
+//        // C. Async variant
+//            await state.fetchPlacesWithAsync()
+//        }
         .sheet(isPresented: state.$showFavorites) {
             coordinator.favoritesScene
         }

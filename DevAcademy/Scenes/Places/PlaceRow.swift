@@ -5,7 +5,7 @@ struct PlaceRow: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: place.properties.obrId1) { image in
+            AsyncImage(url: place.attributes.imageUrl) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
@@ -16,11 +16,11 @@ struct PlaceRow: View {
                 ProgressView()
             }
             VStack(alignment: .leading) {
-                Text(place.properties.nazev)
+                Text(place.attributes.name)
                     .font(.title2)
                     .fontWeight(.semibold)
                     .lineLimit(1)
-                Text(place.properties.druh.rawValue)
+                Text(place.attributes.type.rawValue)
                     .foregroundColor(.secondary)
                     .font(.subheadline)
             }
