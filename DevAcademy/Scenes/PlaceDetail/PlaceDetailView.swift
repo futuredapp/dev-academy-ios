@@ -29,14 +29,14 @@ struct PlaceDetailView: View {
                 }
                 Spacer(minLength: 20)
 // FIXME: Fix coordinates crash
-//                if let placeCoordinate = state.placeCoordinate {
-//                    MapView(coordinate: placeCoordinate)
-//                        .frame(height: 300)
-//                        .cornerRadius(10)
-//                        .overlay(RoundedRectangle(cornerRadius: 10)
-//                            .stroke(Color.gray.opacity(0.2), lineWidth: 1))
-//                        .padding(.horizontal)
-//                }
+                if let placeCoordinate = state.placeCoordinate {
+                    MapView(coordinate: placeCoordinate)
+                        .frame(height: 300)
+                        .cornerRadius(10)
+                        .overlay(RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1))
+                        .padding(.horizontal)
+                }
                 Spacer()
             }
             .navigationTitle(state.placeTitle)
