@@ -7,12 +7,20 @@ struct PlaceDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Text(state.placeType)
-                    .font(.title2)
-                    .fontWeight(.medium)
-                    .foregroundColor(.secondary)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading, .bottom])
+                HStack(alignment: .center) {
+                    Text(state.placeType)
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Button {
+                        state.isFavourite.wrappedValue.toggle()
+                    } label: {
+                        Image(systemName: state.isFavourite.wrappedValue ? "heart.fill" : "heart")
+                            .foregroundColor(Color.red)
+                    }
+                }
+                .padding([.horizontal, .bottom])
                 if let placeImageUrl = state.placeImageUrl {
                     AsyncImage(url: placeImageUrl) { image in
                         image
