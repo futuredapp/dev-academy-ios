@@ -5,7 +5,7 @@ struct PlaceRow: View {
 
     var body: some View {
         HStack {
-            AsyncImage(url: place.attributes.imageUrl) { image in
+            StoredAsyncImage(url: place.attributes.imageUrl) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
