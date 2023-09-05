@@ -18,6 +18,7 @@
 		84FA93B72A68317F00DFC974 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93B62A68317F00DFC974 /* Point.swift */; };
 		84FA93B92A68319800DFC974 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93B82A68319800DFC974 /* Properties.swift */; };
 		BE1E12592AA5C6CB000BA3D8 /* StoreadAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1E12582AA5C6CB000BA3D8 /* StoreadAsyncImage.swift */; };
+		BE38A88A2AA7294400EB5431 /* UserLocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE38A8892AA7294400EB5431 /* UserLocationService.swift */; };
 		BEEF9EC12A67C74E002126F4 /* PlacesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEF9EC02A67C74E002126F4 /* PlacesService.swift */; };
 		C05610492A5C78CA007FB970 /* DevAcademyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05610482A5C78CA007FB970 /* DevAcademyApp.swift */; };
 		C056104B2A5C78CA007FB970 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C056104A2A5C78CA007FB970 /* RootView.swift */; };
@@ -44,6 +45,8 @@
 		84FA93B62A68317F00DFC974 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		84FA93B82A68319800DFC974 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		BE1E12582AA5C6CB000BA3D8 /* StoreadAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreadAsyncImage.swift; sourceTree = "<group>"; };
+		BE38A8882AA7285B00EB5431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BE38A8892AA7294400EB5431 /* UserLocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationService.swift; sourceTree = "<group>"; };
 		BEEF9EC02A67C74E002126F4 /* PlacesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesService.swift; sourceTree = "<group>"; };
 		C05610452A5C78CA007FB970 /* DevAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C05610482A5C78CA007FB970 /* DevAcademyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevAcademyApp.swift; sourceTree = "<group>"; };
@@ -110,6 +113,7 @@
 			children = (
 				C0B74A2E2A8280D80018D10F /* Services.swift */,
 				BEEF9EC02A67C74E002126F4 /* PlacesService.swift */,
+				BE38A8892AA7294400EB5431 /* UserLocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 		C05610472A5C78CA007FB970 /* DevAcademy */ = {
 			isa = PBXGroup;
 			children = (
+				BE38A8882AA7285B00EB5431 /* Info.plist */,
 				C05610482A5C78CA007FB970 /* DevAcademyApp.swift */,
 				C056104A2A5C78CA007FB970 /* RootView.swift */,
 				C0CAEAC42A801F3C008D87C2 /* Environment */,
@@ -266,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				849BA6402A79094500D8E0F0 /* PlaceDetailView.swift in Sources */,
+				BE38A88A2AA7294400EB5431 /* UserLocationService.swift in Sources */,
 				C0CAEAC12A8017E7008D87C2 /* MapView.swift in Sources */,
 				C0CAEAD12A8023FB008D87C2 /* PlacesObservableObject.swift in Sources */,
 				C0CAEABB2A8009A4008D87C2 /* PlacesViewState.swift in Sources */,
@@ -417,6 +423,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DevAcademy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -446,6 +453,7 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DevAcademy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
