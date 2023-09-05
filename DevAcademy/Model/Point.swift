@@ -1,3 +1,5 @@
+import CoreLocation
+
 struct Point: Decodable {
     var latitude: Double
     var longitude: Double
@@ -5,5 +7,11 @@ struct Point: Decodable {
     enum CodingKeys: String, CodingKey {
         case latitude = "y"
         case longitude = "x"
+    }
+}
+
+extension Point {
+    var cllocation: CLLocation {
+        .init(latitude: latitude, longitude: longitude)
     }
 }

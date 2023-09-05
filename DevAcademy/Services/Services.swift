@@ -2,20 +2,25 @@ import Foundation
 
 final class Services {
     let placesService: PlacesService
+    let locationService: UserLocationService
     
     init(
-        placesService: PlacesService
+        placesService: PlacesService,
+        locationService: UserLocationService
     ) {
         self.placesService = placesService
+        self.locationService = locationService
     }
 }
 
 extension Services {
     convenience init() {
         let placesService = ProductionPlacesService()
+        let locationService = ProductionUserLocationService()
 
         self.init(
-            placesService: placesService
+            placesService: placesService,
+            locationService: locationService
         )
     }
 }
@@ -24,6 +29,7 @@ extension Services {
 
 extension Services {
     static let mock = Services(
-        placesService: MockPlacesService()
+        placesService: MockPlacesService(),
+        locationService: MockLocationService()
     )
 }

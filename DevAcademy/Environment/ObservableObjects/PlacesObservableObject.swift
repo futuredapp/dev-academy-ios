@@ -1,4 +1,5 @@
 import Foundation
+import CoreLocation
 
 final class PlacesObservableObject: ObservableObject {
     @Published var places: [Place] = []
@@ -15,9 +16,29 @@ final class PlacesObservableObject: ObservableObject {
         didSet { updatePlaces() }
     }
     private let placesService: PlacesService
-    
-    init(placesService: PlacesService) {
+    private let locationService: UserLocationService
+    private var lastUpdatedLocation: CLLocation?
+
+
+    init(placesService: PlacesService, locationService: UserLocationService) {
         self.placesService = placesService
+        self.locationService = locationService
+        
+        self.locationService.listenDidUpdateLocation { [weak self] location in
+            DispatchQueue.main.async {
+                self?.locationDidUpdate(location: location)
+            }
+        }
+        
+        self.locationService.listenDidUpdateStatus { [weak self] status in
+            switch status {
+            case .notDetermined:
+                self?.locationService.requestAuthorization()
+            case .authorizedWhenInUse, .authorizedAlways:
+                self?.beginLocationUpdates()
+            default: break
+            }
+        }
     }
 
     func set(place: Place, favourite setFavourite: Bool) {
@@ -76,6 +97,20 @@ final class PlacesObservableObject: ObservableObject {
 
     private func updatePlaces() {
         var regularPlaces = rawPlaces
+        
+        if let lastUpdatedLocation {
+            regularPlaces.sort { lPlace, rPlace in
+                guard let rPoint = rPlace.geometry?.cllocation else {
+                    return false
+                }
+                guard let lPoint = lPlace.geometry?.cllocation else {
+                    return true
+                }
+
+                return lastUpdatedLocation.distance(from: lPoint).magnitude < lastUpdatedLocation.distance(from: rPoint).magnitude
+            }
+        }
+        
         var presentOnTop: [Place] = []
         let favouritePlaces = self.favouritePlaces ?? []
 
@@ -89,5 +124,19 @@ final class PlacesObservableObject: ObservableObject {
         }
 
         self.places = presentOnTop + regularPlaces
+    }
+    
+    private func shouldUpdate(location: CLLocation) -> Bool {
+        lastUpdatedLocation.flatMap { $0.distance(from: location).magnitude > 500 } ?? true
+    }
+    
+    private func beginLocationUpdates() {
+        self.locationService.startUpdatingLocation()
+    }
+    
+    private func locationDidUpdate(location: [CLLocation]) {
+        guard let userLocation = location.first, shouldUpdate(location: userLocation) else { return }
+        self.lastUpdatedLocation = userLocation
+        updatePlaces()
     }
 }
