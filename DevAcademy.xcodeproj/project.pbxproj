@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FD9E6BE2AAF3BFB00AFAAA9 /* SwiftLintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD9E6BD2AAF3BFB00AFAAA9 /* SwiftLintModel.swift */; };
 		849BA6402A79094500D8E0F0 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BA63F2A79094500D8E0F0 /* PlaceDetailView.swift */; };
 		849BA6462A791DF800D8E0F0 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = 849BA6452A791DF800D8E0F0 /* ActivityIndicatorView */; };
 		84FA93A42A67F63500DFC974 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FA93A32A67F63500DFC974 /* PlacesView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FD9E6BD2AAF3BFB00AFAAA9 /* SwiftLintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftLintModel.swift; sourceTree = "<group>"; };
 		849BA63F2A79094500D8E0F0 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
 		84FA93A32A67F63500DFC974 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		84FA93AB2A682B2500DFC974 /* PlaceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceRow.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				84FA93B02A68313E00DFC974 /* PossibleKind.swift */,
 				84FA93B82A68319800DFC974 /* Properties.swift */,
 				C0CAEAC22A80185B008D87C2 /* IdentifiableCoordinate.swift */,
+				2FD9E6BD2AAF3BFB00AFAAA9 /* SwiftLintModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05610532A5C78CB007FB970 /* Build configuration list for PBXNativeTarget "DevAcademy" */;
 			buildPhases = (
+				2F78808E2AAF35750070F8F8 /* SwiftLint */,
 				C05610412A5C78CA007FB970 /* Sources */,
 				C05610422A5C78CA007FB970 /* Frameworks */,
 				C05610432A5C78CA007FB970 /* Resources */,
@@ -265,6 +269,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F78808E2AAF35750070F8F8 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if test -d \"/opt/homebrew/bin/\"; then\n  PATH=\"/opt/homebrew/bin/:${PATH}\"\nfi\n\nexport PATH\n\nif which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"error: SwiftLint not installed, run: brew install swiftlint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C05610412A5C78CA007FB970 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -282,6 +308,7 @@
 				C0CAEAB92A80094E008D87C2 /* PlaceDetailViewState.swift in Sources */,
 				84FA93AF2A6830F800DFC974 /* Kind.swift in Sources */,
 				C0B74A2F2A8280D80018D10F /* Services.swift in Sources */,
+				2FD9E6BE2AAF3BFB00AFAAA9 /* SwiftLintModel.swift in Sources */,
 				84FA93AC2A682B2500DFC974 /* PlaceRow.swift in Sources */,
 				84FA93B12A68313E00DFC974 /* PossibleKind.swift in Sources */,
 				C0CAEACB2A80220A008D87C2 /* Coordinator.swift in Sources */,
