@@ -5,6 +5,12 @@ struct PlaceDetailView: View {
     let state: PlaceDetailViewState
     
     var body: some View {
+        TextEditor(text: .init(
+            get: { state.note ?? "" },
+            set: { state.note = $0 })
+        )
+        .foregroundColor(Color.gray)
+        .border(Color.red)
         ScrollView {
             VStack {
                 HStack(alignment: .center) {
@@ -21,6 +27,8 @@ struct PlaceDetailView: View {
                     }
                 }
                 .padding([.horizontal, .bottom])
+                
+
                 if let placeImageUrl = state.placeImageUrl {
                     AsyncImage(url: placeImageUrl) { image in
                         image
@@ -48,6 +56,12 @@ struct PlaceDetailView: View {
                 Spacer()
             }
             .navigationTitle(state.placeTitle)
+        }
+        .onAppear {
+            state.loadNote()
+        }
+        .onDisappear {
+            state.saveNoteState()
         }
     }
 }
