@@ -3,7 +3,7 @@ import CoreLocation
 
 final class PlacesObservableObject: ObservableObject {
     @Published var places: [Place] = []
-
+    
     private(set) var favouritePlaces: [Int]? {
         get { UserDefaults.standard.array(forKey: "favourites") as? [Int] }
         set {
@@ -11,18 +11,20 @@ final class PlacesObservableObject: ObservableObject {
             updatePlaces()
         }
     }
-
+    
     private var rawPlaces: [Place] = [] {
         didSet { updatePlaces() }
     }
     private let placesService: PlacesService
     private let locationService: UserLocationService
+    private let coreDataService: CoreDataService
     private var lastUpdatedLocation: CLLocation?
-
-
-    init(placesService: PlacesService, locationService: UserLocationService) {
+    
+    
+    init(placesService: PlacesService, locationService: UserLocationService, coreDataService: CoreDataService) {
         self.placesService = placesService
         self.locationService = locationService
+        self.coreDataService = coreDataService
         
         self.locationService.listenDidUpdateLocation { [weak self] location in
             DispatchQueue.main.async {
@@ -40,11 +42,11 @@ final class PlacesObservableObject: ObservableObject {
             }
         }
     }
-
+    
     func set(place: Place, favourite setFavourite: Bool) {
         var favouritePlaces = self.favouritePlaces ?? []
         let currentIndex = favouritePlaces.firstIndex(of: place.attributes.ogcFid)
-
+        
         switch (setFavourite, currentIndex) {
         case (true, nil):
             favouritePlaces.append(place.attributes.ogcFid)
@@ -53,10 +55,10 @@ final class PlacesObservableObject: ObservableObject {
         default:
             return
         }
-
+        
         self.favouritePlaces = favouritePlaces
     }
-
+    
     // A. Closure variant
     func fetchPlaces() {
         placesService.places { result in
@@ -70,7 +72,7 @@ final class PlacesObservableObject: ObservableObject {
             }
         }
     }
-
+    
     // B. Async with checked continuation variant
     func fetchPlacesWithCheckedContinuation() async {
         let result = await placesService.placesWithCheckedContinuation()
@@ -83,7 +85,7 @@ final class PlacesObservableObject: ObservableObject {
             print(error)
         }
     }
-
+    
     // C. Async variant
     @MainActor
     func fetchPlacesWithAsync() async {
@@ -94,7 +96,7 @@ final class PlacesObservableObject: ObservableObject {
             print(error)
         }
     }
-
+    
     private func updatePlaces() {
         var regularPlaces = rawPlaces
         
@@ -106,14 +108,14 @@ final class PlacesObservableObject: ObservableObject {
                 guard let lPoint = lPlace.geometry?.cllocation else {
                     return true
                 }
-
+                
                 return lastUpdatedLocation.distance(from: lPoint).magnitude < lastUpdatedLocation.distance(from: rPoint).magnitude
             }
         }
         
         var presentOnTop: [Place] = []
         let favouritePlaces = self.favouritePlaces ?? []
-
+        
         regularPlaces.removeAll { place in
             if favouritePlaces.contains(place.attributes.ogcFid) {
                 presentOnTop.append(place)
@@ -122,7 +124,7 @@ final class PlacesObservableObject: ObservableObject {
                 return false
             }
         }
-
+        
         self.places = presentOnTop + regularPlaces
     }
     
@@ -138,5 +140,13 @@ final class PlacesObservableObject: ObservableObject {
         guard let userLocation = location.first, shouldUpdate(location: userLocation) else { return }
         self.lastUpdatedLocation = userLocation
         updatePlaces()
+    }
+    
+    func loadNote(forPlace ogcFid: Int) -> String? {
+        coreDataService.loadNote(forPlace: ogcFid)
+    }
+    
+    func save(note: String?, forPlace ogcFid: Int) {
+        coreDataService.save(note: note, forPlace: ogcFid)
     }
 }

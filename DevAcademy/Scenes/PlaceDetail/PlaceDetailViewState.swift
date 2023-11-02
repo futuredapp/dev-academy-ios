@@ -3,7 +3,8 @@ import MapKit
 
 struct PlaceDetailViewState: DynamicProperty {
     @EnvironmentObject private var placesObject: PlacesObservableObject
-
+    @State var note: String? = nil
+    
     private let place: Place
 
     init(place: Place) {
@@ -35,6 +36,14 @@ struct PlaceDetailViewState: DynamicProperty {
             return nil
         }
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    func loadNote() {
+        note = placesObject.loadNote(forPlace: place.attributes.ogcFid)
+    }
+    
+    func saveNoteState() {
+        placesObject.save(note: note, forPlace: place.attributes.ogcFid)
     }
 }
 
